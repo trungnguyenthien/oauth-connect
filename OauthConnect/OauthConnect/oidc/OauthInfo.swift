@@ -19,15 +19,15 @@ struct OauthInfo {
     var loginRequest: URLRequest {
         let params = [
             "client_id": clientID,
-            "client_secret": clientSecret,
+//            "client_secret": clientSecret,
             "redirect_uri": redirectUri,
             "scope": scopes.joined(separator: ","),
-            "grant_type": "authorization_code",
+//            "grant_type": "authorization_code",
             "response_type": "code"
         ].queryString
         
         let url = URL(string: authEndpoint + "?\(params)")!
-        
+        print(url.absoluteString)
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         return request
